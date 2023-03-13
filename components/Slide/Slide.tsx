@@ -1,8 +1,8 @@
-import React from 'react';
-import { Carousel } from 'antd';
-import Image from 'next/image';
-import pic1 from '../../public/slide1.jpg'
-import pic2 from '../../public/slide2.jpg'
+import React from "react";
+import { Carousel } from "antd";
+import Image from "next/image";
+import pic1 from "../../public/slide1.jpg";
+import pic2 from "../../public/slide2.jpg";
 
 const App: React.FC = () => {
   const onChange = (currentSlide: number) => {
@@ -10,18 +10,18 @@ const App: React.FC = () => {
   };
 
   return (
-    <Carousel afterChange={onChange} autoplay={true}>
+    <Carousel afterChange={onChange} autoplay={true} className='mt-5' draggable>
       <div>
-        <Image alt='pic1' src={pic1}/>
+        <Image alt="pic1" src={pic1} />
       </div>
       <div>
-        <Image alt='pic2' src={pic2}/>
+        <Image alt="pic2" src={pic2} />
       </div>
       <div>
-        <Image alt='pic1' src={pic1}/>
+        <Image alt="pic1" src={pic1} />
       </div>
       <div>
-        <Image alt='pic2' src={pic2}/>
+        <Image alt="pic2" src={pic2} />
       </div>
     </Carousel>
   );

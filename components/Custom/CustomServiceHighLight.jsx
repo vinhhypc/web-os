@@ -1,7 +1,7 @@
-import { Image, Rate } from "antd";
-export default function CustomProduct() {
+import { Rate,Image} from "antd";
+export default function CustomServiceHighLight() {
   return (
-    <div className="w-[250px] flex flex-col bg-white rounded-sm">
+    <div className="w-[250px] flex flex-col bg-[#F5F5F5] rounded-sm">
       <Image
         src="/volang.jpg"
         width={250}
@@ -15,4 +15,4 @@ export default function CustomProduct() {
     </div>
   );
 }
-
+  

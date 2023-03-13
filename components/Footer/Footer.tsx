@@ -1,6 +1,7 @@
 import React from "react";
 import { EnvironmentOutlined, PhoneOutlined, MailOutlined, GlobalOutlined } from "@ant-design/icons";
 import Image from "next/image";
+import Link from "next/link";
 import FooterHead from './FooterHead'
 const Footer = () => {
   return (
@@ -41,12 +42,12 @@ const Footer = () => {
       </div>
       <div className="flex flex-col gap-3">
         <h1 className="text-sm font-semibold my-5">CHÍNH SÁCH</h1>
-        <p>Chính sách thanh toán</p>
-        <p>Chính sách vận chuyển</p>
-        <p>Chính sách bảo hành</p>
-        <p>Chính sách đổi trả / hoàn tiền</p>
-        <p>Chính sách bảo mật thông tin</p>
-        <Image src='/logobct.png' height={120} width={120} alt='logobct' />
+        <Link href='/policy/policy-payment'><p>Chính sách thanh toán</p> </Link>
+        <Link href='/policy/policy-transport'><p>Chính sách vận chuyển</p></Link>
+        <Link href='/policy/policy-warranty'><p>Chính sách bảo hành</p></Link>
+        <Link href='/policy/policy-refund'><p>Chính sách đổi trả / hoàn tiền</p></Link>
+        <Link href='/policy/policy-security'><p>Chính sách bảo mật thông tin</p></Link>
+        <a href="https://moit.gov.vn/"><Image src='/logobct.png' height={120} width={120} alt='logobct' /></a>
       </div>
       <div className="flex flex-col gap-3">
         <h1 className="text-sm font-semibold my-5">GIỜ MỞ CỬA</h1>

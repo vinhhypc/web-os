@@ -1,5 +1,5 @@
 import React from "react";
-import CustomProduct from "../Custom/CustomProduct";
+import CustomServiceHighLight from "../Custom/CustomServiceHighLight";
 import { DownOutlined, ArrowRightOutlined } from "@ant-design/icons";
 const ServiceHighlight = () => {
   return (
@@ -59,17 +59,17 @@ const ServiceHighlight = () => {
             <DownOutlined style={{ fontSize: "10px", color: "#1D9BD7" }} />
           </div>
         </div>
-        <div className="flex justify-center gap-10">
-          <CustomProduct />
-          <CustomProduct />
-          <CustomProduct />
-          <CustomProduct />
+        <div className="flex justify-center gap-10 flex-wrap">
+          <CustomServiceHighLight />
+          <CustomServiceHighLight />
+          <CustomServiceHighLight />
+          <CustomServiceHighLight />
         </div>
         <div className="flex justify-center my-5">
-          <div className=" flex items-center bg-[#1D9BD7] px-4 py-2 rounded-2xl w-fit text-[#F5F5F5]">
+          <button className=" flex items-center bg-[#1D9BD7] px-4 py-2 rounded-2xl w-fit text-[#F5F5F5]">
             <p className="text-xs mr-2">Xem tất cả</p>
             <ArrowRightOutlined style={{ fontSize: "12px" }} />
-          </div>
+          </button>
         </div>
       </div>
     </div>

@@ -54,17 +54,17 @@ const ProductHighlight = () => {
             <DownOutlined style={{ fontSize: "10px", color: "#1D9BD7" }} />
           </div>
         </div>
-        <div className="flex justify-center gap-10">
+        <div className="flex justify-center gap-10 flex-wrap">
           <CustomProduct />
           <CustomProduct />
           <CustomProduct />
           <CustomProduct />
         </div>
         <div className="flex justify-center my-5">
-          <div className=" flex items-center bg-[#1D9BD7] px-4 py-2 rounded-2xl w-fit text-white">
+          <button className=" flex items-center bg-[#1D9BD7] px-4 py-2 rounded-2xl w-fit text-white">
             <p className="text-xs mr-2">Xem tất cả</p>
             <ArrowRightOutlined style={{ fontSize: "12px" }} />
-          </div>
+          </button>
         </div>
       </div>
     </div>

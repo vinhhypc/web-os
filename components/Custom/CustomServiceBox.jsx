@@ -3,7 +3,7 @@ import Image from "next/image";
 import { RightCircleOutlined } from '@ant-design/icons';
 export default function CustomServiceBox() {
   return (
-    <div className="flex justify-center gap-10">
+    <div className="flex justify-center gap-10 ">
       <div className="relative ">
           <Image
             alt="test"

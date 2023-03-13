@@ -5,7 +5,7 @@ import AppLayout from '../components/AppLayout'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-  <AppLayout>
+  <AppLayout >
     <Component {...pageProps} />
   </AppLayout>
   )
