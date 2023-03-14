@@ -16,7 +16,7 @@ const Navbar = () => {
     {
       label: (
         <Link href="/">
-          <Image src="/Logo.png" width={120} height={60} alt="logo" />
+          <Image src="/logo.png" width={120} height={60} alt="logo" />
         </Link>
       ),
       key: "logo",
