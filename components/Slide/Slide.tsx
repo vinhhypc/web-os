@@ -10,7 +10,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Carousel afterChange={onChange} autoplay={true} className='mt-5' draggable>
+    <Carousel afterChange={onChange} autoplay={true} className='mt-5' draggable dots={false}>
       <div>
         <Image alt="pic1" src={pic1} />
       </div>

@@ -8,7 +8,7 @@ const Services = () => {
         <h1 className="text-xl font-semibold uppercase">
           Dịch vụ chăm sóc ô tô tại nhà
         </h1>
-        <p className="mt-3 opacity-40 text-[12px] w-1/3">
+        <p className="mt-3 opacity-40 text-xs xl:w-1/3 w-4/5 md:w-2/3">
           Đây chính là Dịch vụ đặc biệt của TST. Các bạn chỉ cần đặt dịch vụ,
           chúng tôi sẽ đến tận nơi phục vụ các bạn.
         </p>

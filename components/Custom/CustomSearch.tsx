@@ -22,9 +22,9 @@ const App: React.FC = () => {
 
   return (
     <>
-      <SearchOutlined onClick={showModal}/>
+      <SearchOutlined onClick={showModal} className='!text-lg'/>
       <Modal title="Tìm kiếm dịch vụ, sản phẩm..." open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-      <Search placeholder="input search text" onSearch={onSearch} />
+      <Search placeholder="input search text" onSearch={onSearch} allowClear />
       </Modal>
     </>
   );

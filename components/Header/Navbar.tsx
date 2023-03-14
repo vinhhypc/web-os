@@ -2,26 +2,29 @@ import React from "react";
 import { Menu, Input, Affix } from "antd";
 import type { MenuProps } from "antd/es/menu";
 import Image from "next/image";
-import CustomSearch from '../Custom/CustomSearch'
+import CustomSearch from "../Custom/CustomSearch";
 import {
   WhatsAppOutlined,
   YoutubeOutlined,
   FacebookOutlined,
   GoogleOutlined,
- 
 } from "@ant-design/icons";
 import Link from "next/link";
 type MenuItem = Required<MenuProps>["items"][number];
 const Navbar = () => {
-  const onSearch = (value: string) => {
-    console.log(value);
-  };
-  const { Search } = Input;
   const items: MenuItem[] = [
-    { label: "Trang chủ", key: "home" },
-    { label: "Giới thiệu", key: "intro" },
     {
-      label: "Sản phẩm",
+      label: (
+        <Link href="/">
+          <Image src="/Logo.png" width={120} height={60} alt="logo" />
+        </Link>
+      ),
+      key: "logo",
+    },
+    { label: <Link href="/">Trang chủ</Link>, key: "home" },
+    { label: <Link href="/introduce">Giới thiệu</Link>, key: "intro" },
+    {
+      label: <Link href="/highlight-product">Sản phẩm</Link>,
       key: "product",
       children: [
         {
@@ -56,52 +59,80 @@ const Navbar = () => {
         },
       ],
     },
-    { label: "Chính sách", key: "policy" },
+    {
+      label: <Link href="/policy/policy-payment">Chính sách</Link>,
+      key: "policy",
+      children: [
+        {
+          label: (
+            <Link href="/policy/policy-payment">Chính sách thanh toán</Link>
+          ),
+          key: "policy-payment",
+        },
+        {
+          label: (
+            <Link href="/policy/policy-transport">Chính sách vận chuyển</Link>
+          ),
+          key: "policy-transport",
+        },
+        {
+          label: (
+            <Link href="/policy/policy-refund">
+              Chính sách đổi trả/hoàn tiền
+            </Link>
+          ),
+          key: "policy-refund",
+        },
+        {
+          label: (
+            <Link href="/policy/policy-warranty">
+              Chính sách bảo mật thông tin
+            </Link>
+          ),
+          key: "policy-warranty",
+        },
+      ],
+    },
     { label: "Thanh toán", key: "payment" },
     { label: "Tư vấn", key: "advise" },
     { label: "Bảng giá", key: "price" },
     { label: "Liên hệ", key: "contact" },
+    { label: <CustomSearch />, key: "search" },
   ];
   return (
-      <Affix>
-        <div>
-          <div className="h-10 bg-[#1D9BD7] text-sm flex items-center justify-between px-40">
-            <div className="flex text-white gap-2 items-center">
-              <div className="">Cần hỗ trợ ?</div>
-              <span>
-                <WhatsAppOutlined style={{ fontSize: "20px" }} />
-              </span>
-              <span>Gọi 0903 330 937</span>
-            </div>
-            <div className="text-white flex gap-4">
-              <span>
-                <FacebookOutlined style={{ fontSize: "20px" }} />
-              </span>
-              <span>
-                <YoutubeOutlined style={{ fontSize: "20px" }} />
-              </span>
-              <span>
-                <GoogleOutlined style={{ fontSize: "20px" }} />
-              </span>
-            </div>
+    <Affix>
+      <div>
+        <div className=" flex md:h-10 h-20 bg-[#1D9BD7] md:flex-row flex-col text-sm  items-center md:justify-between justify-evenly md:py-0 py-2 md:px-40">
+          <div className="flex text-white gap-2 items-center">
+            <div className="">Cần hỗ trợ ?</div>
+            <span>
+              <WhatsAppOutlined style={{ fontSize: "20px" }} />
+            </span>
+            <span>Gọi 0903 330 937</span>
           </div>
-          <div className="flex items-center justify-evenly bg-white  ">
-              <Link href="/">
-                <Image src="/Logo.png" width={120} height={60} alt="logo" />
-              </Link>
-              <Menu
-                className="h-14 flex items-center justify-end gap-2 uppercase"
-                items={items}
-                mode="horizontal"
-                defaultValue="home"
-              />
-            <div className="text-black">
-               <CustomSearch/>
-            </div>
+          <hr style={{ border: "1px solid white"}} className='w-1/3 my-2 mx-auto md:hidden md:my-0' />
+          <div className="text-white flex gap-4">
+            <span>
+              <FacebookOutlined style={{ fontSize: "20px" }} />
+            </span>
+            <span>
+              <YoutubeOutlined style={{ fontSize: "20px" }} />
+            </span>
+            <span>
+              <GoogleOutlined style={{ fontSize: "20px" }} />
+            </span>
           </div>
-          
         </div>
-      </Affix>
+        <div className="flex items-center justify-center bg-white  ">
+          <Menu
+            className="h-14 flex items-center justify-end lg:gap-2 uppercase gap-0 !text-sm"
+            items={items}
+            mode="horizontal"
+            defaultValue="home"
+          />
+        </div>
+      </div>
+    </Affix>
   );
 };
 

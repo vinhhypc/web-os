@@ -3,11 +3,11 @@ import CustomServiceHighLight from "../Custom/CustomServiceHighLight";
 import { DownOutlined, ArrowRightOutlined } from "@ant-design/icons";
 const ServiceHighlight = () => {
   return (
-    <div className="bg-white pt-12 pb-7">
+    <div className="bg-white pt-10 pb-1">
       <div className="text-center">
         <div className="flex justify-center items-center flex-col">
           <h1 className="text-xl font-semibold uppercase">Dịch vụ nổi bật</h1>
-          <p className="mt-3 opacity-40 text-[12px] w-1/3">
+          <p className="mt-3 opacity-40 text-xs xl:w-1/3 w-4/5 md:w-2/3">
             Với 15 năm kinh nghiệm trong ngành cùng đội ngũ nhân viên chất lượng
             cao, chúng tôi tự tin sẽ mang đến cho quý khách những trải nghiệm
             tuyệt vời nhất
@@ -59,14 +59,14 @@ const ServiceHighlight = () => {
             <DownOutlined style={{ fontSize: "10px", color: "#1D9BD7" }} />
           </div>
         </div>
-        <div className="flex justify-center gap-10 flex-wrap">
+        <div className="flex justify-center gap-6 flex-wrap">
           <CustomServiceHighLight />
           <CustomServiceHighLight />
           <CustomServiceHighLight />
           <CustomServiceHighLight />
         </div>
         <div className="flex justify-center my-5">
-          <button className=" flex items-center bg-[#1D9BD7] px-4 py-2 rounded-2xl w-fit text-[#F5F5F5]">
+          <button className=" flex items-center bg-[#1D9BD7] px-4 py-2 rounded-2xl w-fit text-[#F5F5F5] hover:bg-sky-400">
             <p className="text-xs mr-2">Xem tất cả</p>
             <ArrowRightOutlined style={{ fontSize: "12px" }} />
           </button>
