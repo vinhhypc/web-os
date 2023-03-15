@@ -1,4 +1,4 @@
-import AppLayout from "../components/AppLayout";
+
 import Slide from "../components/Slide";
 import Services from "../components/Services";
 import ProductHighlight from "../components/ProductHighlight";

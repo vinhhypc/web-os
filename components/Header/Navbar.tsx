@@ -8,6 +8,7 @@ import {
   YoutubeOutlined,
   FacebookOutlined,
   GoogleOutlined,
+  BarsOutlined
 } from "@ant-design/icons";
 import Link from "next/link";
 type MenuItem = Required<MenuProps>["items"][number];
@@ -60,7 +61,7 @@ const Navbar = () => {
       ],
     },
     {
-      label: <Link href="/policy/policy-payment">Chính sách</Link>,
+      label: <Link href="/policy">Chính sách</Link>,
       key: "policy",
       children: [
         {
@@ -68,6 +69,14 @@ const Navbar = () => {
             <Link href="/policy/policy-payment">Chính sách thanh toán</Link>
           ),
           key: "policy-payment",
+        },
+        {
+          label: (
+            <Link href="/policy/policy-warranty">
+              Chính sách bảo hành
+            </Link>
+          ),
+          key: "policy-warranty",
         },
         {
           label: (
@@ -85,15 +94,15 @@ const Navbar = () => {
         },
         {
           label: (
-            <Link href="/policy/policy-warranty">
+            <Link href="/policy/policy-security">
               Chính sách bảo mật thông tin
             </Link>
           ),
-          key: "policy-warranty",
+          key: "policy-security",
         },
       ],
     },
-    { label: "Thanh toán", key: "payment" },
+    { label: <Link href="/policy/policy-payment">Thanh toán</Link>, key: "payment" },
     { label: "Tư vấn", key: "advise" },
     { label: "Bảng giá", key: "price" },
     { label: "Liên hệ", key: "contact" },
@@ -129,6 +138,7 @@ const Navbar = () => {
             items={items}
             mode="horizontal"
             defaultValue="home"
+            overflowedIndicator={<BarsOutlined />}
           />
         </div>
       </div>

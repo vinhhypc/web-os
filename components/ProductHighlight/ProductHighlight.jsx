@@ -1,6 +1,7 @@
 import React from "react";
 import CustomProduct from "../Custom/CustomProduct";
 import { DownOutlined, ArrowRightOutlined } from "@ant-design/icons";
+import { Carousel } from "antd";
 const ProductHighlight = () => {
   return (
     <div className="bg-[#F5F5F5] pt-10 pb-1">
@@ -54,7 +55,7 @@ const ProductHighlight = () => {
             <DownOutlined style={{ fontSize: "10px", color: "#1D9BD7" }} />
           </div>
         </div>
-        <div className="flex justify-center gap-6 flex-wrap">
+        <div className="flex flex-row justify-center gap-6 flex-wrap">
           <CustomProduct />
           <CustomProduct />
           <CustomProduct />
