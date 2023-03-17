@@ -59,12 +59,7 @@ const ServiceHighlight = () => {
             <DownOutlined style={{ fontSize: "10px", color: "#1D9BD7" }} />
           </div>
         </div>
-        <div className="flex justify-center gap-6 flex-wrap">
           <CustomServiceHighLight />
-          <CustomServiceHighLight />
-          <CustomServiceHighLight />
-          <CustomServiceHighLight />
-        </div>
         <div className="flex justify-center my-5">
           <button className=" flex items-center bg-[#1D9BD7] px-4 py-2 rounded-2xl w-fit text-[#F5F5F5] hover:bg-sky-400">
             <p className="text-xs mr-2">Xem tất cả</p>
