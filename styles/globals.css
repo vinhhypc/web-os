@@ -9,3 +9,11 @@
 img{
   margin: 0 auto
 }
+.ant-spin-text { color: #1D9BD7; }
+.ant-list-items{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}

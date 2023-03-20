@@ -1,6 +1,7 @@
 import React from "react";
 import CustomServiceHighLight from "../Custom/CustomServiceHighLight";
 import { DownOutlined, ArrowRightOutlined } from "@ant-design/icons";
+import Link from "next/link";
 const ServiceHighlight = () => {
   return (
     <div className="bg-white pt-10 pb-1">
@@ -59,13 +60,15 @@ const ServiceHighlight = () => {
             <DownOutlined style={{ fontSize: "10px", color: "#1D9BD7" }} />
           </div>
         </div>
+        <div className="flex justify-center items-center">
           <CustomServiceHighLight />
-        <div className="flex justify-center my-5">
+        </div>
+        <Link className="flex justify-center my-5" href='./list-service'>
           <button className=" flex items-center bg-[#1D9BD7] px-4 py-2 rounded-2xl w-fit text-[#F5F5F5] hover:bg-sky-400">
             <p className="text-xs mr-2">Xem tất cả</p>
             <ArrowRightOutlined style={{ fontSize: "12px" }} />
           </button>
-        </div>
+        </Link>
       </div>
     </div>
   );
