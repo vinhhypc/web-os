@@ -63,7 +63,7 @@ const ServiceHighlight = () => {
         <div className="flex justify-center items-center">
           <CustomServiceHighLight />
         </div>
-        <Link className="flex justify-center my-5" href='./list-service'>
+        <Link className="flex justify-center my-5" href='./product'>
           <button className=" flex items-center bg-[#1D9BD7] px-4 py-2 rounded-2xl w-fit text-[#F5F5F5] hover:bg-sky-400">
             <p className="text-xs mr-2">Xem tất cả</p>
             <ArrowRightOutlined style={{ fontSize: "12px" }} />

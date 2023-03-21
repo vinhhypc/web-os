@@ -7,10 +7,9 @@ function GetAllService() {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [sortOrder, setSortOrder] = useState("az");
-  const [current, setCurrent] = useState(1);
   const scrollToTop = () => {
     window.scrollTo({
-        top: 0,
+        top: 30,
         behavior: "smooth",
     });
 };
@@ -82,7 +81,7 @@ function GetAllService() {
           </div>
           <List
             split={false}
-            className="flex flex-col items-center mx-[15%] "
+            className="flex flex-col items-center mx-[5%] min-[1650px]:mx-[10%] min-[1850px]:mx-[15%] min-[2130px]:mx-[20%] "
             pagination={{
               onChange: (page) => {
                 setPage(page);
@@ -97,7 +96,7 @@ function GetAllService() {
             renderItem={(product, index) => {
               return (
                 <List.Item>
-                  <Link href="/highlight-product" key={index}>
+                  <Link href={`/product/${product.id}`} key={index}>
                     <div
                       className="w-[280px] flex flex-col bg-[#F5F5F5] rounded-sm shadow-md hover:shadow-xl"
                       style={{ border: "1px solid rgba(0, 0, 0, .2)" }}
@@ -105,8 +104,9 @@ function GetAllService() {
                       <Image
                         src={`${product.thumbnail}`}
                         height={200}
+                        width={280}
                         style={{
-                          objectFit: "!scale-down",
+                          objectFit: "!cover",
                         }}
                         preview={false}
                       />
@@ -139,7 +139,6 @@ function GetAllService() {
 }
 export default function ListService() {
   return (
-    // <div className=" flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-5 flex-[0_1_25%] min-[890px]:mx-[15%] mx-[10%] min-[1256px]:mx-0 my-5">
     <div>
       <GetAllService />
     </div>

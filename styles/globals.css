@@ -17,3 +17,16 @@ img{
   align-items: center;
   gap: 1.5rem;
 }
+.ant-drawer-content-wrapper{
+  width: 350px!important;
+}
+@media only screen and (max-width: 540px) {
+  .ant-drawer-content-wrapper {
+      width: 60%!important;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .ant-drawer-content-wrapper {
+      width: 40%!important;
+  }
+}

@@ -25,7 +25,7 @@ function GetLink() {
       {services?.map((service) => {
         return (
           <Link
-            href="/highlight-product"
+            href={`/product/${service.id}`}
             key={service.id}
           >
             <div
