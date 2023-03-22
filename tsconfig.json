@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/Header/Navbar.tsx", "components/Custom/CustomServiceBox.jsx", "pages/_app.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/Header/Navbar.jsx", "components/Custom/CustomServiceBox.jsx", "pages/_app.tsx", "components/Custom/CustomSearch.tsx"],
   "exclude": ["node_modules"]
 }

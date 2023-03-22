@@ -41,17 +41,20 @@ const Navbar = () => {
             </span>
           </div>
         </div>
-        <div className="flex items-center lg:justify-center justify-between bg-white ">
-          <div className="px-3 py-3 lg:hidden block">
-            <BarsOutlined
-              className=" text-2xl "
-              onClick={() => setOpenMenu(true)}
-            />
-          </div>
-          <div>
+        <div className="bg-white flex justify-center lg:justify-between px-5 items-center ">
             <Link href="/">
               <Image src="/logo.png" width={120} height={60} alt="logo" />
             </Link>
+          <div className="hidden lg:block">
+            <CustomSearch />
+          </div>
+        </div>
+        <div className="flex items-center lg:justify-center justify-between bg-white ">
+          <div className="px-3 py-3 lg:hidden block">
+            <BarsOutlined
+              className=" text-2xl  "
+              onClick={() => setOpenMenu(true)}
+            />
           </div>
           <div className="lg:block hidden">
             <AppMenu />
@@ -62,11 +65,12 @@ const Navbar = () => {
               closable
               onClose={() => setOpenMenu(false)}
               placement="left"
+              className=" !bg-[#1D9BD7] !lg:bg-white"
             >
-              <AppMenu />
+              <AppMenu isInline={true} onClick={()=>setOpenMenu(false)} />
             </Drawer>
           </div>
-          <div>
+          <div className="lg:hidden pr-5 ">
             <CustomSearch />
           </div>
         </div>
@@ -75,13 +79,23 @@ const Navbar = () => {
   );
 };
 export default Navbar;
-function AppMenu({ isInline = false }) {
+
+interface AppMenuProps {
+  isInline?: boolean;
+  onClick?: () => void;
+}
+function AppMenu({ isInline, onClick }: AppMenuProps) {
   const items: MenuItem[] = [
+    { label: <Link href="/">Trang chủ</Link>, key: "home" },
     { label: <Link href="/introduce">Giới thiệu</Link>, key: "intro" },
     {
-      label: <Link href="/product">Sản phẩm</Link>,
+      label: 'Sản phẩm',
       key: "product",
       children: [
+        {
+          label: <Link href='/product'>Tất cả sản phẩm</Link>,
+          key: 'allproduct'
+        },
         {
           label: "Chăm sóc xe",
           key: "chamsocxe",
@@ -115,7 +129,7 @@ function AppMenu({ isInline = false }) {
       ],
     },
     {
-      label: <Link href="/policy">Chính sách</Link>,
+      label: "Chính sách",
       key: "policy",
       children: [
         {
@@ -164,10 +178,10 @@ function AppMenu({ isInline = false }) {
   ];
   return (
     <Menu
-      className=" uppercase my-6 !text-sm !border-none"
+      className=" uppercase my-6 !text-sm !border-none flex flex-col lg:flex-row bg-[#1D9BD7] lg:bg-white text-white lg:text-black"
       items={items}
       mode={isInline ? "inline" : "horizontal"}
-      disabledOverflow
+      onClick={onClick}
     />
   );
 }

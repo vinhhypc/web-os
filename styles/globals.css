@@ -22,11 +22,23 @@ img{
 }
 @media only screen and (max-width: 540px) {
   .ant-drawer-content-wrapper {
-      width: 60%!important;
+      width: 70%!important;
   }
 }
 @media only screen and (min-width: 768px) {
   .ant-drawer-content-wrapper {
       width: 40%!important;
   }
+}
+.anticon-close{
+  color: white;
+}
+
+@media only screen and (max-width: 1023px) {
+  .ant-menu > li::after {
+    border-bottom: none!important;
+  }
+}
+.ant-input-search-button{
+  background-color: #1D9BD7!important;
 }
