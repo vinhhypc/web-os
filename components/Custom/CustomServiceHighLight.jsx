@@ -33,10 +33,11 @@ function GetLink() {
               style={{ border: "1px solid rgba(0, 0, 0, .2)" }}
             >
               <Image
-                src={`${service.thumbnail}`}
+                // src={`${service.thumbnail}`}
+                src="/o-to-duc.png"
                 height={200}
                 style={{
-                  objectFit: "!scale-down",
+                  objectFit: "contain",
                 }}
                 preview={false}
               />

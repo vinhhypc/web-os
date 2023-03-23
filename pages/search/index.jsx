@@ -3,7 +3,9 @@ import React from 'react'
 const Search = () => {
   return (
     <div>
-        hello
+        <div>
+          <p>Có {} kết quả được tìm thấy cho từ khóa {} :</p>
+        </div>
     </div>
   )
 }

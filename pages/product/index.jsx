@@ -1,4 +1,4 @@
-import { Rate, Image, Pagination, Spin, Select, Typography, List } from "antd";
+import { Rate, Image, Spin, Select, Typography, List } from "antd";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import productApi from "../../api/productApi";
@@ -102,7 +102,8 @@ function GetAllService() {
                       style={{ border: "1px solid rgba(0, 0, 0, .2)" }}
                     >
                       <Image
-                        src={`${product.thumbnail}`}
+                        // src={`${product.thumbnail}`}
+                        src="/o-to-duc.png"
                         height={200}
                         width={280}
                         style={{

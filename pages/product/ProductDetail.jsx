@@ -27,7 +27,10 @@ const ProductDetail = () => {
           className="text-center md:mx-0 mx-2"
           style={{ border: "1px solid rgba(0, 0, 0, .2)" }}
         >
-          <Image src={product?.thumbnail} width={350} />
+          <Image 
+          // src={product?.thumbnail} 
+          src="/o-to-duc.png"
+          width={350} />
         </div>
         <div className="md:self-center text-center md:text-start mb-10">
           <h1 className="text-[#1D9BD7] text-center md:text-start font-semibold my-2">

@@ -1,4 +1,6 @@
 import axiosClient from "./axiosClient";
+import useSwr from 'swr'
+import queryString from "query-string";
 const productApi = {
     getAll : (params) => {
         const url = '/products'
@@ -10,7 +12,7 @@ const productApi = {
     },
     getSearch: (params) => {
         const url = `/products/search?q=${params}`
-        return axiosClient.get(url,{params}) 
+        return axiosClient.get(url)
     }
 }
 export default productApi
