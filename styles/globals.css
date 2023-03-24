@@ -42,3 +42,7 @@ img{
 .ant-input-search-button{
   background-color: #1D9BD7!important;
 }
+.ant-btn-primary{
+  background-color: #1677ff !important;
+  color: white;
+}
