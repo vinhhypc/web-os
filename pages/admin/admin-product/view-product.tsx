@@ -7,11 +7,8 @@ import {
   FileOutlined,
   DeleteOutlined,
 } from "@ant-design/icons";
-type Props = {
-    
-};
 
-function Viewproduct({}: Props) {
+function Viewproduct() {
   return (
     <div className="grow ">
       <div className="pt-5 flex gap-5 px-3 justify-between !font-light">
