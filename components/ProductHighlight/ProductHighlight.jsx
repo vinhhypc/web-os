@@ -1,7 +1,8 @@
 import React from "react";
-import CustomProduct from "../Custom/CustomProduct";
+import CustomProduct from "../Custom/CustomProductHighLight";
 import { DownOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import { Carousel } from "antd";
+import Link from "next/link";
 const ProductHighlight = () => {
   return (
     <div className="bg-[#F5F5F5] pt-10 pb-1">
@@ -57,16 +58,13 @@ const ProductHighlight = () => {
         </div>
         <div className="flex flex-row justify-center gap-6 flex-wrap">
           <CustomProduct />
-          <CustomProduct />
-          <CustomProduct />
-          <CustomProduct />
         </div>
-        <div className="flex justify-center my-5">
+        <Link className="flex justify-center my-5" href='./product' >
           <button className=" flex items-center bg-[#1D9BD7] px-4 py-2 rounded-2xl w-fit text-white hover:bg-sky-400">
             <p className="text-xs mr-2">Xem tất cả</p>
             <ArrowRightOutlined style={{ fontSize: "12px" }} />
           </button>
-        </div>
+        </Link>
       </div>
     </div>
   );

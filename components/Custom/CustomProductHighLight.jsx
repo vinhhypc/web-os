@@ -1,7 +1,7 @@
 import { Rate, Image } from "antd";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import serviceApi from "../../api/serviceApi"
+import productApi from "../../api/productApi";
 import axios from "axios";
 function GetLink() {
   const formatter = new Intl.NumberFormat('en-US', {
@@ -9,33 +9,30 @@ function GetLink() {
     currency: 'USD',
     minimumFractionDigits: 0
   })
-  const [serviceList, setServiceList] = useState([]);
+  const [productList, setproductList] = useState([]);
   useEffect(() => {
-    const fetchServiceList = async () => {
+    const fetchproductList = async () => {
       try {
-        const response = await serviceApi.getHomeService();
-        setServiceList(response);
+        const response = await productApi.getHomeProduct();
+        setproductList(response);
       } catch (error) {
         console.log(error);
       }
     };
-    fetchServiceList();
+    fetchproductList();
   }, []);
-  const services = serviceList.data;
+  const products = productList.data;
   return (
     <>
-      {services?.map((service) => {
+      {products?.map((product) => {
         return (
-          <Link
-            href={`/service/${service.id}`}
-            key={service.id}
-          >
+          <Link href={`/product/${product.id}`} key={product.id}>
             <div
               className="w-[280px] flex flex-col bg-[#F5F5F5] rounded-sm shadow-md hover:shadow-xl"
               style={{ border: "1px solid rgba(0, 0, 0, .2)" }}
             >
               <Image
-                src={`${service.thumbnail}`}
+                src={`${product.thumbnail}`}
                 width={278}
                 height={200}
                 style={{
@@ -47,26 +44,29 @@ function GetLink() {
                 <>
                   <Rate
                     disabled
-                    defaultValue={service.rating}
+                    defaultValue={product.rating}
                     className="text-xs"
                     allowHalf
                   />
                 </>
-                <h2 className="text-xs text-start truncate w-[150px] uppercase ">{service.title}</h2>
-                <p className="text-[#1D9BD7] text-xs">{formatter.format(service.price)} </p>
+                <h2 className="text-xs text-start truncate w-[150px] ">
+                  {product.title}
+                </h2>
+                <p className="text-[#1D9BD7] text-xs">{formatter.format(product.price)} VNĐ</p>
               </div>
             </div>
           </Link>
         );
       })}
-
     </>
   );
 }
-export default function CustomServiceHighLight() {
+export default function CustomProductHighLight() {
   return (
     <div className=" flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-5 flex-[1_1_25%] min-[890px]:mx-[15%] mx-[10%] min-[1256px]:mx-0 ">
       <GetLink />
     </div>
   );
 }
+
+

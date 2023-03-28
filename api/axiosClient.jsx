@@ -2,7 +2,7 @@ import axios from 'axios';
 import queryString from 'query-string';
 import { message } from 'antd';
 const axiosClient = axios.create({
-    baseURL: 'https://dummyjson.com',
+    baseURL: 'https://test-one-zeta-99.vercel.app/',
     paramsSerializer: {
         serialize: (params) =>queryString.stringify(params) 
       },

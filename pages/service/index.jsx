@@ -2,9 +2,9 @@ import { Rate, Image, Spin, Select, Typography, List } from "antd";
 import axios from "axios";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import productApi from "../../api/productApi";
-function GetAllProduct() {
-  const [productList, setProductList] = useState([]);
+import serviceApi from "../../api/serviceApi";
+function GetAllService() {
+  const [serviceList, setServiceList] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [sortOrder, setSortOrder] = useState("az");
@@ -35,20 +35,20 @@ function GetAllProduct() {
     { label: "Theo giá từ cao -> thấp", value: "highLow" },
   ];
   useEffect(() => {
-    const fetchProductList = async () => {
+    const fetchServiceList = async () => {
       try {
-        const response = await productApi.getAll();
-        // const response = await axios.get("http://localhost:3001/products");
-        setProductList(response.data);
+        const response = await serviceApi.getAll();
+        // const response = await axios.get("http://localhost:3001/services");
+        setServiceList(response.data);
         setLoading(false);
       } catch (error) {
         console.log(error);
       }
     };
-    fetchProductList();
+    fetchServiceList();
   }, []);
   const getSortedItems = () => {
-    const sortedItems = [...productList];
+    const sortedItems = [...serviceList];
     sortedItems.sort((a, b) => {
       const aLowerCaseTitle = a.title?.toLowerCase();
       const bLowerCaseTitle = b.title?.toLowerCase();
@@ -107,16 +107,16 @@ function GetAllProduct() {
               className: "text-center mb-5 self-end",
             }}
             dataSource={getSortedItems()}
-            renderItem={(product, index) => {
+            renderItem={(service, index) => {
               return (
                 <List.Item>
-                  <Link href={`/product/${product.id}`} key={index}>
+                  <Link href={`/service/${service.id}`} key={index}>
                     <div
                       className="w-[280px] flex flex-col bg-[#F5F5F5] rounded-sm shadow-md hover:shadow-xl"
                       style={{ border: "1px solid rgba(0, 0, 0, .2)" }}
                     >
                       <Image
-                        src={`${product.thumbnail}`}
+                        src={`${service.thumbnail}`}
                         height={200}
                         width={278}
                         style={{
@@ -128,16 +128,16 @@ function GetAllProduct() {
                         <>
                           <Rate
                             disabled
-                            defaultValue={product.rating}
+                            defaultValue={service.rating}
                             className="text-xs"
                             allowHalf
                           />
                         </>
                         <h2 className="text-xs truncate w-[150px] uppercase">
-                          {product.title}
+                          {service.title}
                         </h2>
                         <p className="text-[#1D9BD7] text-xs">
-                          {formatter.format(product?.price)} VNĐ
+                          {formatter.format(service?.price)} VNĐ
                         </p>
                       </div>
                     </div>
@@ -151,10 +151,10 @@ function GetAllProduct() {
     </>
   );
 }
-export default function ListProduct() {
+export default function ListService() {
   return (
     <div>
-      <GetAllProduct />
+      <GetAllService />
     </div>
   );
 }
