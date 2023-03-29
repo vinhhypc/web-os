@@ -23,7 +23,7 @@ const Navbar = () => {
             <span>
               <WhatsAppOutlined style={{ fontSize: "20px" }} />
             </span>
-            <span>Gọi 0903 330 937</span>
+            <span>Gọi 024 37.958.958</span>
           </div>
           <hr
             style={{ border: "1px solid white" }}

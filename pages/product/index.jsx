@@ -1,5 +1,4 @@
 import { Rate, Image, Spin, Select, Typography, List } from "antd";
-import axios from "axios";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import productApi from "../../api/productApi";
@@ -8,11 +7,11 @@ function GetAllProduct() {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [sortOrder, setSortOrder] = useState("az");
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0
-  })
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 0,
+  });
   const scrollToTop = () => {
     window.scrollTo({
       top: 30,
@@ -38,7 +37,6 @@ function GetAllProduct() {
     const fetchProductList = async () => {
       try {
         const response = await productApi.getAll();
-        // const response = await axios.get("http://localhost:3001/products");
         setProductList(response.data);
         setLoading(false);
       } catch (error) {

@@ -11,7 +11,7 @@ const productApi = {
         return axiosClient.get(url)
     },
     getSearch: (params) => {
-        const url = `/products/search?q=${params}`
+        const url = `/products/search?q=${(params)}`
         return axiosClient.get(url)
     },
     getHomeProduct : () => {

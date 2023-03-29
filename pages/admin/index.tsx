@@ -2,7 +2,7 @@
 
 type Props = {}
 
-export default function index({}: Props) {
+export default function Hello({}: Props) {
   return (
     <div
     className=" flex justify-center items-center"
