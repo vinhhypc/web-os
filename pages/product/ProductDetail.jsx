@@ -17,7 +17,7 @@ const ProductDetail = () => {
   const getProduct = useCallback(async () => {
     if (idProduct) {
       const product = await productApi.getId(Number(idProduct));
-      setProduct(product.data);
+      setProduct(product?.data);
       setLoading(false);
     }
   }, [idProduct]);
@@ -37,7 +37,7 @@ const ProductDetail = () => {
           width={350} />
         </div>
         <div className="md:self-center text-center md:text-start mb-10">
-          <h1 className="text-[#1D9BD7] text-center md:text-start font-semibold my-2">
+          <h1 className="text-[#1D9BD7] text-center md:text-start font-semibold my-2 px-[10%] md:px-0">
             {product?.title}
           </h1>
           <div>

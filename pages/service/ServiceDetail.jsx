@@ -17,7 +17,6 @@ const ServiceDetail = () => {
   const [loading, setLoading] = useState(true);
   const getService = useCallback(async () => {
     if (idservice) {
-      // const res = await serviceApi.getId(`${Number(idservice)}`);
       const res = await axios.get(`https://test-vinhhypc.vercel.app/services/${idservice}`)
       setService(res.data);
       setLoading(false);
@@ -41,7 +40,7 @@ const ServiceDetail = () => {
           <Image src={service?.thumbnail} width={350} />
         </div>
         <div className="md:self-center text-center md:text-start mb-10">
-          <h1 className="text-[#1D9BD7] text-center md:text-start font-semibold my-2">
+          <h1 className="text-[#1D9BD7] text-center md:text-start font-semibold my-2 px-[10%] md:px-0">
             {service?.title}
           </h1>
           <div>

@@ -52,7 +52,7 @@ function GetLink() {
                     allowHalf
                   />
                 </>
-                <h2 className="text-xs text-start truncate w-[150px] uppercase ">{service.title}</h2>
+                <h2 className="text-xs text-start truncate w-[200px] uppercase ">{service.title}</h2>
                 <p className="text-[#1D9BD7] text-xs">{formatter.format(service.price)} </p>
               </div>
             </div>

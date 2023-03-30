@@ -4,22 +4,22 @@ import { useState, useEffect } from "react";
 import productApi from "../../api/productApi";
 import axios from "axios";
 function GetLink() {
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0
-  })
-  const [productList, setproductList] = useState([]);
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 0,
+  });
+  const [productList, setProductList] = useState([]);
   useEffect(() => {
-    const fetchproductList = async () => {
+    const fetchProductList = async () => {
       try {
         const response = await productApi.getHomeProduct();
-        setproductList(response);
+        setProductList(response);
       } catch (error) {
         console.log(error);
       }
     };
-    fetchproductList();
+    fetchProductList();
   }, []);
   const products = productList.data;
   return (
@@ -49,10 +49,12 @@ function GetLink() {
                     allowHalf
                   />
                 </>
-                <h2 className="text-xs text-start truncate w-[150px] ">
+                <h2 className="text-xs text-start truncate w-[200px] ">
                   {product.title}
                 </h2>
-                <p className="text-[#1D9BD7] text-xs">{formatter.format(product.price)} VNĐ</p>
+                <p className="text-[#1D9BD7] text-xs">
+                  {formatter.format(product.price)} VNĐ
+                </p>
               </div>
             </div>
           </Link>
@@ -68,5 +70,3 @@ export default function CustomProductHighLight() {
     </div>
   );
 }
-
-

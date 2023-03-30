@@ -41,7 +41,7 @@ const Navbar = () => {
             </span>
           </div>
         </div>
-        <div className="bg-white flex justify-center lg:justify-between px-5 items-center ">
+        <div className="bg-white flex justify-center lg:justify-between px-5 items-center lg:pt-4">
             <Link href="/">
               <Image src="/logo.png" width={120} height={60} alt="logo" />
             </Link>

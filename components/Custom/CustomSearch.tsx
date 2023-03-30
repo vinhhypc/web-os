@@ -1,30 +1,19 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Input } from "antd";
-import Router from "next/router";
-import productApi from "../../api/productApi";
+import { useRouter } from "next/router";
+import Link from "next/link";
 const { Search } = Input;
 
 const CustomSearch: React.FC = () => {
-  const [productList, setProductList] = useState([]);
+  const router = useRouter();
   const [input, setInput] = useState("");
-  // const onSearch = async (params:any) => {
-  //   try {
-  //     const res = await productApi.getSearch(params);
-  //     setProductList(res?.data);
-  //     setInput("");
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  //   // Router.push("/search");
-  // };
-  // useEffect(() => {
-  //   onSearch();
-  // }, []);
-
-  const onSearch = (e:any) =>{
-    console.log(e)
-    setInput("")
-  }
+  const onSearch = async (params: string) => {
+    setInput("");
+    router.push({
+      pathname: "/search",
+      query: { data: params },
+    });
+  };
   return (
     <>
       <Search
