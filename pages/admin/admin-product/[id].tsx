@@ -9,7 +9,7 @@ import {
 } from "@ant-design/icons";
 import UploadFile from "../components/UploadFile";
 
-const Editproduct = () => {
+const EditProduct = () => {
   const defaultItems = [
     { label: "Apple", value: "Apple" },
     { label: "Samsung", value: "Samsung" },
@@ -28,10 +28,6 @@ const Editproduct = () => {
         {
           label: `${searchText} ${searchText}`,
           value: `${searchText} ${searchText}`,
-        },
-        {
-          label: `${searchText} ${searchText} ${searchText}`,
-          value: `${searchText} ${searchText} ${searchText}`,
         },
       ]);
   };
@@ -90,7 +86,7 @@ const Editproduct = () => {
       </div>
       <div className="flex gap-2 justify-end mt-2 pr-[10%]">
         <div>
-          <Button className="flex justify-center items-center">
+          <Button className="flex justify-center items-center" type="primary">
             <DownloadOutlined />
             <span>Lưu lại</span>
           </Button>
@@ -106,4 +102,4 @@ const Editproduct = () => {
   );
 };
 
-export default Editproduct;
+export default EditProduct;

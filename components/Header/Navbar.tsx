@@ -23,22 +23,22 @@ const Navbar = () => {
             <span>
               <WhatsAppOutlined style={{ fontSize: "20px" }} />
             </span>
-            <span>Gọi 024 37.958.958</span>
+            <span onClick={()=> window.open('tel:02437958958')} className="hover:cursor-pointer">Gọi 024 37.958.958</span>
           </div>
           <hr
             style={{ border: "1px solid white" }}
             className="w-1/3 my-2 mx-auto md:hidden md:my-0"
           />
           <div className="text-white flex gap-4">
-            <span>
+            <a href="https://www.facebook.com/tstcorp/" target="_blank">
               <FacebookOutlined style={{ fontSize: "20px" }} />
-            </span>
-            <span>
+            </a>
+            <a href="https://www.tstc.vn/" target="_blank">
               <YoutubeOutlined style={{ fontSize: "20px" }} />
-            </span>
-            <span>
+            </a>
+            <a href="https://www.tstc.vn/" target={"_blank"}>
               <GoogleOutlined style={{ fontSize: "20px" }} />
-            </span>
+            </a>
           </div>
         </div>
         <div className="bg-white flex justify-center lg:justify-between px-5 items-center lg:pt-4">

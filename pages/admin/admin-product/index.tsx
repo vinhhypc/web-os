@@ -1,5 +1,14 @@
 import React from "react";
-import { Button, Input, Table, Popconfirm, Empty, Spin } from "antd";
+import {
+  Button,
+  Input,
+  Table,
+  Popconfirm,
+  Empty,
+  Spin,
+  message,
+  Tooltip,
+} from "antd";
 import {
   EyeOutlined,
   EditOutlined,
@@ -11,6 +20,7 @@ import Link from "next/link";
 import productApi from "../../../api/productApi";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { v4 as uuidv4 } from "uuid";
 const { Search } = Input;
 
 interface DataType {
@@ -18,91 +28,118 @@ interface DataType {
   dataIndex: string;
   width: string | number;
   action: () => void;
+  id: number;
 }
 interface Props {
   product: string;
   index: string;
 }
 
-const Action = () => {
- 
-  return (
-    <div className="flex gap-2">
-      <Link href={`/admin/admin-product/view-product/`}>
-        <Button size="small" className="flex items-center justify-center">
-          <EyeOutlined />
-        </Button>
-      </Link>
-      <Link href="/admin/admin-product/edit-product">
-        <Button size="small" className="flex items-center justify-center">
-          <EditOutlined />
-        </Button>
-      </Link>
-      <Popconfirm
-        title="Xoá sản phẩm"
-        description="Bạn chắc chắn muốn xóa sản phẩm?"
-        okText="Yes"
-        cancelText="No"
-      >
-        <Button
-          size="small"
-          className="flex items-center justify-center"
-          danger
-        >
-          <DeleteOutlined />
-        </Button>
-      </Popconfirm>
-    </div>
-  );
-};
-
-const columns: ColumnsType<DataType> = [
-  {
-    title: "Id",
-    dataIndex: "id",
-    key: 1,
-    width: 60,
-    align: "center",
-  },
-  {
-    title: "Tên sản phẩm",
-    dataIndex: "title",
-    key: 2,
-    width: 500,
-    align: "center",
-  },
-  {
-    title: "Giá",
-    dataIndex: "price",
-    width: 140,
-    align: "center",
-    key: 3,
-  },
-  {
-    title: "Thương hiệu",
-    dataIndex: "brand",
-    width: 140,
-    align: "center",
-    key: 4,
-  },
-  {
-    title: "Ảnh đại diện",
-    dataIndex: "thumbnail",
-    align: "center",
-    key: 5,
-  },
-  {
-    title: "Hành động",
-    dataIndex: "action",
-    width: 150,
-    align: "center",
-    key: 6,
-    render: () => <Action />,
-  },
-];
 const AdminProduct = () => {
   const [productList, setProductList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [searchText, setSearchText] = useState("");
+  const router = useRouter();
+  const columns: ColumnsType<DataType> = [
+    {
+      title: "Id",
+      dataIndex: "id",
+      key: 1,
+      width: 60,
+      align: "center",
+    },
+    {
+      title: "Tên sản phẩm",
+      dataIndex: "title",
+      key: 2,
+      width: 500,
+      align: "center",
+      filteredValue: [searchText],
+      onFilter: (value, record) => {
+        return String(record.title)
+          .toLowerCase()
+          .includes((value as string).toLowerCase());
+      },
+    },
+    {
+      title: "Giá",
+      dataIndex: "price",
+      width: 140,
+      align: "center",
+      key: 3,
+    },
+    {
+      title: "Thương hiệu",
+      dataIndex: "brand",
+      width: 140,
+      align: "center",
+      key: 4,
+    },
+    {
+      title: "Ảnh đại diện",
+      dataIndex: "thumbnail",
+      align: "center",
+      width: 150,
+      key: 5,
+      render: (source) => (
+        <img src={`${source}`} style={{ width: "40px", height: "40px" }} />
+      ),
+    },
+    {
+      title: "Hành động",
+      dataIndex: "action",
+      width: 150,
+      align: "center",
+      key: 6,
+      render: (record, value) => {
+        return (
+          <div className="flex gap-2 justify-center">
+            <Link href={`/product/${value.id}`} target="_blank">
+              <Tooltip placement="bottom" title={"Xem trên trang"}>
+                <Button
+                  size="small"
+                  className="flex items-center justify-center"
+                >
+                  <EyeOutlined />
+                </Button>
+              </Tooltip>
+            </Link>
+            <Tooltip placement="bottom" title="Chỉnh sửa">
+              <Button
+                size="small"
+                className="flex items-center justify-center"
+                onClick={() =>
+                  router.push({
+                    pathname: `/admin/admin-product/${value.id}`,
+                    query: { product: value.id },
+                  })
+                }
+              >
+                <EditOutlined />
+              </Button>
+            </Tooltip>
+            <Popconfirm
+              title="Xoá sản phẩm"
+              description="Bạn chắc chắn muốn xóa sản phẩm?"
+              okText="Yes"
+              cancelText="No"
+              onConfirm={() => message.success("Xóa thành công")}
+            >
+              <Tooltip placement="bottom" title="Xóa sản phẩm">
+                <Button
+                  size="small"
+                  className="flex items-center justify-center"
+                  danger
+                >
+                  <DeleteOutlined />
+                </Button>
+              </Tooltip>
+            </Popconfirm>
+          </div>
+        );
+      },
+    },
+  ];
   useEffect(() => {
     setLoading(true);
     const fetchProductList = async () => {
@@ -116,9 +153,7 @@ const AdminProduct = () => {
     };
     fetchProductList();
   }, []);
-  const onSearch = (value: string) => console.log(value);
-  const router = useRouter();
-  console.log(productList);
+  const onSearch = (value: string) => setSearchText(value);
   return (
     <div className="grow">
       <h1 className="text-center pt-4 uppercase font-bold font">
@@ -130,6 +165,7 @@ const AdminProduct = () => {
           onSearch={onSearch}
           enterButton
           className="w-[300px]"
+          onChange={(e) => setSearchText(e.target.value)}
         />
       </div>
       <div className="flex justify-end pr-7 py-1">
@@ -143,8 +179,10 @@ const AdminProduct = () => {
       <div>
         <Table
           columns={columns}
-          dataSource={loading ? [] : productList}
+          dataSource={productList}
           size="middle"
+          rowKey={"id"}
+          key={uuidv4()}
           locale={{
             emptyText: loading ? <Spin spinning={true} /> : <Empty />,
           }}

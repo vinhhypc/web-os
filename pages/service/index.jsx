@@ -38,7 +38,6 @@ function GetAllService() {
     const fetchServiceList = async () => {
       try {
         const response = await serviceApi.getAll();
-        // const response = await axios.get("http://localhost:3001/services");
         setServiceList(response.data);
         setLoading(false);
       } catch (error) {
